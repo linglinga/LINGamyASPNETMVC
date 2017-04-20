@@ -1,0 +1,49 @@
+﻿@model HW1_BirthdayCard.Models.CardEntry
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SendForm</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/styles.css" />
+    <style>
+        .btn a {
+            color: springgreen;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+@{
+    Layout = null;
+}
+
+<html>
+<body>
+    <div style="background-color:black; color:white; padding:10px; max-width: 400px">
+        <h4>Birthday Card Generator</h4>
+    </div>
+
+    <h1 class="panel-heading text-left">Send a Birthday Card</h1>
+    <div class="panel-heading text-left">
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+
+            <p> From:  @Html.TextBoxFor(t => t.From, new { @class = "form-inline", MaxLength = 30, style = "Width:300px;" })</p>
+                <p>To: @Html.TextBoxFor(t => t.To, new { @class = "form-inline", MaxLength = 30, style = "Width:300px;" })</p>
+                <p>Message: @Html.TextAreaFor(t => t.Message, new { @class = "form-inline", MaxLength = 30, style = "Width:300px;" })</p>
+
+                <input class="btn btn-success" type="submit" value="Send Card" />
+        }
+    </div>
+
+
+
+</body>
+</html>
